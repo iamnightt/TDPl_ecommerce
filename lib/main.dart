@@ -280,6 +280,7 @@ class _MyAppState extends State<MyApp> {
         builder: (context, provider, snapshot) {
           return MaterialApp.router(
             routerConfig: routes,
+            builder: OneContext().builder,
             title: AppConfig.app_name,
             debugShowCheckedModeBanner: false,
             theme: ThemeData(

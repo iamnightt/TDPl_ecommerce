@@ -88,6 +88,8 @@ class PushNotificationService {
   void _showMessage(RemoteMessage message) {
     //print("onMessage: $message");
 
+    if (!OneContext.hasContext || message.notification == null) return;
+
     OneContext().showDialog(
       // barrierDismissible: false,
       builder: (context) => AlertDialog(
@@ -127,6 +129,7 @@ class PushNotificationService {
 
   void _serialiseAndNavigate(Map<String, dynamic> message) {
     print(message.toString());
+    if (!OneContext.hasContext) return;
     if (is_logged_in.$ == false) {
       OneContext().showDialog(
           // barrierDismissible: false,
