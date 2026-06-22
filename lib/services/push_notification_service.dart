@@ -40,7 +40,7 @@ class PushNotificationService {
 
     // print("--fcm token--");
     // print(fcmToken);
-    if (is_logged_in.$ == true) {
+    if (is_logged_in.$ == true && fcmToken != null) {
       // update device token
       var deviceTokenUpdateResponse =
           await ProfileRepository().getDeviceTokenUpdateResponse(fcmToken);
