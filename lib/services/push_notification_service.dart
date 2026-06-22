@@ -33,6 +33,14 @@ class PushNotificationService {
     );
     String? fcmToken = await _fcm.getToken();
 
+    // Subscribe every device to the broadcast topic so admins can push
+    // sale / new-deal announcements to all users at once.
+    try {
+      await _fcm.subscribeToTopic('promotions');
+    } catch (e) {
+      print('subscribeToTopic error: $e');
+    }
+
     await flutterLocalNotificationsPlugin
         .resolvePlatformSpecificImplementation<
             AndroidFlutterLocalNotificationsPlugin>()

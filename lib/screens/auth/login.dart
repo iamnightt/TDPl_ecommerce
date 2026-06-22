@@ -148,6 +148,13 @@ class _LoginState extends State<Login> {
           print('Caught exception: $e');
         }
 
+        // Subscribe to the broadcast topic for sale / new-deal push to all users.
+        try {
+          await _fcm.subscribeToTopic('promotions');
+        } catch (e) {
+          print('subscribeToTopic error: $e');
+        }
+
         print("--fcm token--");
         // print("token: $fcmToken");
         // update device token
