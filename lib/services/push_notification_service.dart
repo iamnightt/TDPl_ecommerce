@@ -31,8 +31,7 @@ class PushNotificationService {
       provisional: false,
       sound: true,
     );
-    String? fcmToken = 'fhjghjgjkhjhjk';
-    // String? fcmToken = await _fcm.getToken();
+    String? fcmToken = await _fcm.getToken();
 
     await flutterLocalNotificationsPlugin
         .resolvePlatformSpecificImplementation<
